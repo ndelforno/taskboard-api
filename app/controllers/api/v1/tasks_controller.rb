@@ -11,6 +11,12 @@ module Api::V1
       render json: @task
     end
 
+    def update
+      @task = Task.find(params[:id])
+      @task.update_attributes(task_params)
+      render json: @task
+    end
+
     private
 
     def task_params
